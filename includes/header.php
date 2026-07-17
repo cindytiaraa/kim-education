@@ -6,8 +6,8 @@
  * and optionally $pageTitle / $pageDesc for per-page SEO.
  */
 if (!isset($base)) { $base = ''; }
-$siteName = "Kembali — Foldable Totebag Keychain";
-$title    = isset($pageTitle) ? $pageTitle . " | Kembali" : $siteName;
+$siteName = "Rekey — Foldable Totebag Keychain";
+$title    = isset($pageTitle) ? $pageTitle . " | Rekey" : $siteName;
 $desc     = isset($pageDesc) ? $pageDesc : "Inovasi mengubah limbah plastik LDPE menjadi Foldable Totebag Keychain. Proyek riset KIM & PKM-KC.";
 ?><!DOCTYPE html>
 <html lang="id">

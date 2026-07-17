@@ -8,7 +8,7 @@
 $base      = '../';
 $current   = 'contact';
 $pageTitle = 'Kontak';
-$pageDesc  = 'Hubungi tim riset Kembali Project melalui form kontak.';
+$pageDesc  = 'Hubungi tim riset Project melalui form kontak.';
 
 require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/navbar.php';
