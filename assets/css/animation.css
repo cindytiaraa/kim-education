@@ -1,0 +1,90 @@
+/* ============================================================
+   KIM EDUCATION — animation.css
+   Keyframes + AOS overrides + micro-interactions
+   ============================================================ */
+
+/* Respect reduced motion preference globally */
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
+}
+
+/* ---------- AOS custom easing feel ---------- */
+[data-aos]{
+  transition-property:transform, opacity !important;
+  transition-timing-function:cubic-bezier(.22,.61,.36,1) !important;
+}
+[data-aos="fade-up"]{ transform:translate3d(0,32px,0); opacity:0; }
+[data-aos="fade-up"].aos-animate{ transform:translate3d(0,0,0); opacity:1; }
+
+[data-aos="fade-down"]{ transform:translate3d(0,-28px,0); opacity:0; }
+[data-aos="fade-down"].aos-animate{ transform:translate3d(0,0,0); opacity:1; }
+
+[data-aos="zoom-in"]{ transform:scale(.92); opacity:0; }
+[data-aos="zoom-in"].aos-animate{ transform:scale(1); opacity:1; }
+
+/* ---------- Floating illustrations ---------- */
+@keyframes float-y{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(-14px); }
+}
+@keyframes float-slow{
+  0%,100%{ transform:translateY(0) rotate(0deg); }
+  50%{ transform:translateY(-10px) rotate(2deg); }
+}
+.hero-visual .keyring-illustration{ animation:float-slow 6s ease-in-out infinite; }
+.hero-visual .float-chip.chip-1{ animation:float-y 5s ease-in-out infinite; }
+.hero-visual .float-chip.chip-2{ animation:float-y 5.6s ease-in-out .4s infinite; }
+.product-stage svg{ animation:float-slow 7s ease-in-out infinite; }
+
+/* ---------- Blob drift ---------- */
+@keyframes blob-drift{
+  0%,100%{ transform:translate(0,0) scale(1); }
+  50%{ transform:translate(18px,-16px) scale(1.05); }
+}
+.hero-visual .blob{ animation:blob-drift 10s ease-in-out infinite; }
+
+/* ---------- Journey draw-in line ---------- */
+@keyframes ring-travel{
+  from{ left:0%; }
+  to{ left:100%; }
+}
+.journey-line.draw .ring-runner{
+  animation:ring-travel 2.2s var(--ease-soft) forwards;
+}
+
+/* ---------- Number count-up helper class (JS toggles digits, CSS just eases opacity) ---------- */
+.stat-number.counting,
+.hero-stats .stat b.counting{
+  opacity:.999; /* forces repaint on some browsers during rAF counting */
+}
+
+/* ---------- Property bar fill trigger ---------- */
+.why-ldpe.in-view .property-fill{ width:var(--fill,0%); }
+
+/* ---------- Card entrance stagger helper ---------- */
+.stagger > *{ transition:transform .5s var(--ease-soft), opacity .5s var(--ease-soft); }
+
+/* ---------- Pulse ring on scroll cue / QR ---------- */
+@keyframes soft-pulse{
+  0%{ box-shadow:0 0 0 0 rgba(190,124,77,.28); }
+  70%{ box-shadow:0 0 0 14px rgba(190,124,77,0); }
+  100%{ box-shadow:0 0 0 0 rgba(190,124,77,0); }
+}
+.fab-main{ animation:soft-pulse 3.2s ease-out infinite; }
+
+/* ---------- Nav underline sweep ---------- */
+.kim-nav .nav-links a::after{
+  content:"";
+  position:absolute;
+  left:15px; right:15px; bottom:6px;
+  height:2px;
+  background:var(--clay-500);
+  border-radius:2px;
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .35s var(--ease-soft);
+}
+.kim-nav .nav-links a.active::after{ transform:scaleX(1); }
+
+/* ---------- Loading fade for whole page ---------- */
+body.preload *{ transition:none !important; }

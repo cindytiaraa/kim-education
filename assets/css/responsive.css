@@ -1,0 +1,119 @@
+/* ============================================================
+   KIM EDUCATION — responsive.css
+   Mobile-first breakpoint overrides
+   ============================================================ */
+
+/* ---------- Large desktop guard (extra whitespace, no extra columns) ---------- */
+@media (min-width:1440px){
+  :root{ --container-w:1240px; }
+}
+
+/* ---------- Tablet (≤1024px) ---------- */
+@media (max-width:1024px){
+  :root{ --section-pad-y:96px; }
+
+  .kim-nav .nav-links{ display:none; }
+  .kim-nav .nav-cta .btn-outline{ display:none; }
+  .nav-toggle{ display:flex; }
+
+  .hero .container{ grid-template-columns:1fr; text-align:center; }
+  .hero-sub{ margin-left:auto; margin-right:auto; }
+  .hero-actions{ justify-content:center; }
+  .hero-stats{ justify-content:center; }
+  .hero-visual{ margin-top:20px; }
+  .hero-visual .keyring-illustration{ max-width:340px; }
+
+  .about-grid{ grid-template-columns:1fr; }
+  .about-visual{ min-height:320px; order:-1; }
+
+  .stats-grid{ grid-template-columns:repeat(2,1fr); }
+
+  .plastic-grid{ grid-template-columns:repeat(3,1fr); }
+  .why-ldpe{ grid-template-columns:1fr; padding:36px; }
+
+  .journey-track{ grid-template-columns:repeat(4,1fr); row-gap:56px; }
+  .journey-line{ display:none; }
+
+  .product-grid{ grid-template-columns:1fr; }
+  .product-stage{ min-height:360px; order:-1; }
+
+  .compare-grid{ grid-template-columns:1fr; }
+  .compare-vs{ margin:0 auto; }
+
+  .impact-grid{ grid-template-columns:repeat(2,1fr); }
+
+  .team-grid{ grid-template-columns:repeat(2,1fr); }
+
+  .footer-grid{ grid-template-columns:1fr 1fr; row-gap:40px; }
+
+  .cta-band{ flex-direction:column; text-align:center; padding:48px 36px; }
+  .cta-band .cta-actions{ justify-content:center; }
+}
+
+/* ---------- Large mobile / small tablet (≤768px) ---------- */
+@media (max-width:768px){
+  .section-head{ margin-bottom:44px; }
+  .section-title{ font-size:clamp(26px,6vw,32px); }
+
+  .kim-nav{ top:14px; padding:10px 10px 10px 18px; width:92%; }
+  .kim-nav .brand span{ display:none; }
+
+  .hero{ padding-top:130px; min-height:auto; padding-bottom:70px; }
+  .hero-stats{ gap:22px; }
+
+  .stats-grid{ grid-template-columns:1fr 1fr; }
+  .plastic-grid{ grid-template-columns:repeat(2,1fr); }
+  .plastic-card.highlight{ transform:none; grid-column:span 2; }
+
+  .journey-track{ grid-template-columns:repeat(2,1fr); }
+
+  .feature-list{ grid-template-columns:1fr !important; }
+
+  .compare-card{ padding:28px 22px; }
+
+  .impact-grid{ grid-template-columns:1fr 1fr; }
+
+  .progress-timeline::before{ left:19px; }
+  .timeline-item{ padding-left:54px; }
+  .timeline-item .tl-dot{ width:40px; height:40px; font-size:14px; }
+
+  .team-grid{ grid-template-columns:1fr 1fr; gap:16px; }
+
+  .footer-grid{ grid-template-columns:1fr; gap:36px; }
+  .footer-bottom{ flex-direction:column; text-align:center; }
+}
+
+/* ---------- Mobile (≤480px) ---------- */
+@media (max-width:480px){
+  .container{ padding:0 20px; }
+  :root{ --section-pad-y:76px; }
+
+  .hero h1{ font-size:34px; }
+  .hero-sub{ font-size:16px; }
+  .hero-actions{ flex-direction:column; width:100%; }
+  .hero-actions .btn{ width:100%; }
+  .hero-visual .float-chip{ display:none; }
+
+  .stats-grid{ grid-template-columns:1fr; }
+  .plastic-grid{ grid-template-columns:1fr 1fr; }
+  .plastic-card.highlight{ grid-column:span 2; }
+
+  .journey-track{ grid-template-columns:1fr; }
+  .journey-node{ flex-direction:row; text-align:left; gap:16px; padding:0; margin-bottom:8px; }
+  .journey-node .node-circle{ margin-bottom:0; width:58px; height:58px; font-size:19px; flex-shrink:0; }
+
+  .why-ldpe{ padding:26px; }
+
+  .compare-grid{ gap:16px; }
+
+  .impact-grid{ grid-template-columns:1fr; }
+
+  .team-grid{ grid-template-columns:1fr; }
+
+  .cta-band{ padding:38px 24px; }
+  .cta-band .cta-actions{ flex-direction:column; width:100%; }
+  .cta-band .btn{ width:100%; }
+
+  .floating-actions{ right:16px; bottom:16px; }
+  .fab-main{ width:52px; height:52px; font-size:18px; }
+}
