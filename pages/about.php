@@ -86,6 +86,16 @@ require_once __DIR__ . '/../includes/navbar.php';
           <a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
         </div>
       </div>
+      <div class="team-card" data-aos="fade-up" data-aos-delay="280">
+        <div class="team-avatar">A5</div>
+        <h4>[Nama Anggota 5]</h4>
+        <div class="role">Dokumentasi &amp; Media</div>
+        <div class="socials">
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
     </div>
   </div>
 

@@ -91,7 +91,7 @@ require_once __DIR__ . '/../includes/navbar.php';
       <p class="section-sub">Landing page ini terbagi menjadi beberapa halaman singkat — mulai dari mana pun sesuai rasa penasaran Anda.</p>
     </div>
 
-    <div class="tw-explore-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+    <div class="tw-explore-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
       <a href="pages/education.php" class="tw-explore-card group" data-aos="fade-up" data-aos-delay="0">
         <div class="tw-explore-icon"><i class="fa-solid fa-book-open"></i></div>
         <h4>Edukasi</h4>
@@ -109,12 +109,6 @@ require_once __DIR__ . '/../includes/navbar.php';
         <h4>Solusi</h4>
         <p>Rancangan akhir produk — Foldable Totebag Keychain hasil riset kami.</p>
         <span class="tw-explore-link">Lihat produk <i class="fa-solid fa-arrow-right"></i></span>
-      </a>
-      <a href="pages/about.php" class="tw-explore-card group" data-aos="fade-up" data-aos-delay="240">
-        <div class="tw-explore-icon"><i class="fa-solid fa-users"></i></div>
-        <h4>Tentang Kami</h4>
-        <p>Kenali tim riset di balik proyek ini beserta visi dan misinya.</p>
-        <span class="tw-explore-link">Kenalan yuk <i class="fa-solid fa-arrow-right"></i></span>
       </a>
     </div>
   </div>

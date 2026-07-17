@@ -12,7 +12,6 @@ $navItems = [
   "education" => ["label" => "Edukasi",   "href" => $base . "pages/education.php"],
   "process"   => ["label" => "Proses",    "href" => $base . "pages/process.php"],
   "solution"  => ["label" => "Solusi",    "href" => $base . "pages/solution.php"],
-  "about"     => ["label" => "Tentang Kami", "href" => $base . "pages/about.php"],
 ];
 ?>
 <nav class="kim-nav" id="kimNav">
@@ -22,7 +21,7 @@ $navItems = [
       <path d="M18.5 17L26 24.5" stroke="#BE7C4D" stroke-width="2.4" stroke-linecap="round"/>
       <rect x="23" y="22" width="6.5" height="8" rx="2" transform="rotate(8 23 22)" fill="#BE7C4D"/>
     </svg>
-    <span>Kembali</span>
+    <span>Ecoloop</span>
   </a>
 
   <ul class="nav-links" id="navLinks">
@@ -32,8 +31,8 @@ $navItems = [
   </ul>
 
   <div class="nav-cta">
-    <a href="<?php echo $base; ?>pages/contact.php" class="btn btn-outline">Hubungi Kami</a>
-    <a href="<?php echo $base; ?>pages/solution.php" class="btn btn-primary">Lihat Produk</a>
+    <a href="<?php echo $base; ?>pages/about.php" class="btn btn-outline">Tentang Kami</a>
+    <a href="<?php echo $base; ?>pages/contact.php" class="btn btn-primary">Hubungi Kami</a>
     <button class="nav-toggle" id="navToggle" aria-label="Buka menu">
       <i class="fa-solid fa-bars"></i>
     </button>
@@ -45,6 +44,6 @@ $navItems = [
   <?php foreach ($navItems as $key => $item): ?>
     <a href="<?php echo $item['href']; ?>" class="mm-link"><?php echo $item['label']; ?></a>
   <?php endforeach; ?>
-  <a href="<?php echo $base; ?>pages/contact.php" class="mm-link">Kontak</a>
-  <a href="<?php echo $base; ?>pages/solution.php" class="btn btn-clay mm-cta">Lihat Produk <i class="fa-solid fa-arrow-right"></i></a>
+  <a href="<?php echo $base; ?>pages/about.php" class="mm-link">Tentang Kami</a>
+  <a href="<?php echo $base; ?>pages/contact.php" class="btn btn-clay mm-cta">Hubungi Kami<i class="fa-solid fa-arrow-right"></i></a>
 </div>

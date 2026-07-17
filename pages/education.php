@@ -15,7 +15,7 @@ require_once __DIR__ . '/../includes/navbar.php';
 <!-- PAGE HEADER -->
 <section class="section-pad" style="padding-bottom:0;">
   <div class="container">
-    <div class="section-head" data-aos="fade-up">
+    <div class="section-head center" data-aos="fade-up">
       <span class="eyebrow">Edukasi</span>
       <h2 class="section-title">Memahami Masalah Sebelum Bicara Solusi</h2>
       <p class="section-sub">Sebelum mengenal produknya, penting untuk memahami skala masalah plastik dan mengapa LDPE menjadi jawaban yang kami pilih.</p>

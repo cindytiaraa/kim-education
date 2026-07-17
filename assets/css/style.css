@@ -983,9 +983,9 @@ section{ position:relative; }
    TEAM
    ============================================================ */
 .team-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:24px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
 }
 .team-card{
   background:var(--white);
@@ -996,6 +996,12 @@ section{ position:relative; }
   transition:transform .4s var(--ease-soft), box-shadow .4s ease;
 }
 .team-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-md); }
+.team-card:first-child {
+  grid-column: 1 / -1;     
+  justify-self: center;    
+  width: 100%;             
+  max-width: 280px;        
+}
 .team-avatar{
   width:88px; height:88px;
   border-radius:50%;
