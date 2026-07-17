@@ -578,6 +578,11 @@ section{ position:relative; }
   border-color:var(--forest-700);
   transform:scale(1.04);
   box-shadow:var(--shadow-lg);
+  border:1px solid var(--sand-300);
+  border-radius:var(--radius-md);
+  padding:26px 18px;
+  text-align:center;
+  transition:transform .4s var(--ease-soft), box-shadow .4s ease, border-color .4s ease;
 }
 .plastic-card.highlight .code-badge{
   background:rgba(255,255,255,.12);

@@ -31,11 +31,9 @@ $navItems = [
   </ul>
 
   <div class="nav-cta">
-    <a href="<?php echo $base; ?>pages/about.php" class="btn btn-outline">Tentang Kami</a>
-    <a href="<?php echo $base; ?>pages/contact.php" class="btn btn-primary">Hubungi Kami</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Buka menu">
-      <i class="fa-solid fa-bars"></i>
-    </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Buka menu">
+          <i class="fa-solid fa-bars"></i>
+      </button>
   </div>
 </nav>
 
@@ -44,6 +42,6 @@ $navItems = [
   <?php foreach ($navItems as $key => $item): ?>
     <a href="<?php echo $item['href']; ?>" class="mm-link"><?php echo $item['label']; ?></a>
   <?php endforeach; ?>
-  <a href="<?php echo $base; ?>pages/about.php" class="mm-link">Tentang Kami</a>
-  <a href="<?php echo $base; ?>pages/contact.php" class="btn btn-clay mm-cta">Hubungi Kami<i class="fa-solid fa-arrow-right"></i></a>
+  <a href="<?php echo $base; ?>pages/about.php" class="btn btn-clay mm-cta">Tentang Kami</a>
+  <a href="<?php echo $base; ?>pages/contact.php" class="btn btn-clay mm-cta">Hubungi Kami</a>
 </div>
