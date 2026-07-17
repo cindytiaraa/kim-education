@@ -1,16 +1,15 @@
 {
   "name": "kim-education",
   "version": "1.0.0",
-  "description": "Landing page edukasi untuk proyek riset mahasiswa (persiapan KIM & PKM-KC) yang mengubah limbah plastik LDPE menjadi Foldable Totebag Keychain. Diakses melalui QR Code yang tertempel pada produk.",
-  "main": "index.js",
+  "description": "Foldable Totebag Keychain — Landing page edukasi (KIM & PKM-KC)",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tailwindcss -i ./assets/css/tailwind-input.css -o ./assets/css/tailwind.css --watch",
+    "build": "tailwindcss -i ./assets/css/tailwind-input.css -o ./assets/css/tailwind.css --minify"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@tailwindcss/cli": "^4.3.3",
-    "tailwindcss": "^4.3.3"
+  "devDependencies": {
+    "autoprefixer": "^10.5.4",
+    "postcss": "^8.5.19",
+    "tailwindcss": "^3.4.19"
   }
 }

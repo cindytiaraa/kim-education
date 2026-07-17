@@ -1,34 +1,29 @@
 # ============================================================
 # KIM EDUCATION — .htaccess
-# Static/educational landing page, no routing framework needed.
 # ============================================================
 
-# Set default entry point
 DirectoryIndex index.php
-
-# Prevent directory listing
 Options -Indexes
 
-# Protect includes/ from being accessed directly via URL
+# Protect includes/ (partials, not meant to be loaded directly)
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteCond %{REQUEST_URI} ^/includes/ [NC]
   RewriteRule ^ - [F,L]
 </IfModule>
 
-# Basic security headers
+# services/send-email.php stays reachable — the contact form POSTs to it directly.
+
 <IfModule mod_headers.c>
   Header set X-Content-Type-Options "nosniff"
   Header set X-Frame-Options "SAMEORIGIN"
   Header set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
 
-# Enable gzip compression for faster QR-scan loading on mobile data
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/css application/javascript application/x-javascript text/javascript
 </IfModule>
 
-# Cache static assets
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType text/css "access plus 7 days"
@@ -38,5 +33,8 @@ Options -Indexes
   ExpiresByType image/svg+xml "access plus 30 days"
 </IfModule>
 
-# Custom 404 (optional — create pages/404.php if needed)
-# ErrorDocument 404 /index.php
+# Block direct browsing of node_modules
+<IfModule mod_rewrite.c>
+  RewriteCond %{REQUEST_URI} ^/node_modules/ [NC]
+  RewriteRule ^ - [F,L]
+</IfModule>

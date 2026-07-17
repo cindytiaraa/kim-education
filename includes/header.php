@@ -1,30 +1,28 @@
 <?php
 /**
  * includes/header.php
- * Global <head> — meta, fonts, CSS, and top of <body>.
- * No database, no session logic — pure static markup.
+ * Global <head>. Expects the including file to define $base
+ * ('' when included from project root, '../' when included from pages/)
+ * and optionally $pageTitle / $pageDesc for per-page SEO.
  */
-$siteName   = "Kembali — Foldable Totebag Keychain";
-$siteDesc   = "Inovasi mengubah limbah plastik LDPE menjadi Foldable Totebag Keychain. Edukasi plastik, proses daur ulang, dan dampak lingkungan dari proyek riset KIM & PKM-KC.";
-$siteUrl    = "https://kembali-project.example.com";
-$baseAssets = "assets";
+if (!isset($base)) { $base = ''; }
+$siteName = "Kembali — Foldable Totebag Keychain";
+$title    = isset($pageTitle) ? $pageTitle . " | Kembali" : $siteName;
+$desc     = isset($pageDesc) ? $pageDesc : "Inovasi mengubah limbah plastik LDPE menjadi Foldable Totebag Keychain. Proyek riset KIM & PKM-KC.";
 ?><!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title><?php echo $siteName; ?></title>
-<meta name="description" content="<?php echo $siteDesc; ?>">
+<title><?php echo $title; ?></title>
+<meta name="description" content="<?php echo $desc; ?>">
 <meta name="theme-color" content="#1F3B2C">
 
-<!-- Open Graph -->
-<meta property="og:title" content="<?php echo $siteName; ?>">
-<meta property="og:description" content="<?php echo $siteDesc; ?>">
+<meta property="og:title" content="<?php echo $title; ?>">
+<meta property="og:description" content="<?php echo $desc; ?>">
 <meta property="og:type" content="website">
-<meta property="og:url" content="<?php echo $siteUrl; ?>">
 
-<!-- Favicon -->
-<link rel="icon" type="image/png" href="<?php echo $baseAssets; ?>/img/logo/favicon.png">
+<link rel="icon" type="image/png" href="<?php echo $base; ?>assets/img/logo/favicon.png">
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +32,7 @@ $baseAssets = "assets";
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-<!-- Bootstrap 5 (grid/utilities only — visual design is custom) -->
+<!-- Bootstrap 5 (utility grid only) -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 
 <!-- AOS Animation -->
@@ -43,9 +41,12 @@ $baseAssets = "assets";
 <!-- SwiperJS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
-<!-- Project styles -->
-<link rel="stylesheet" href="<?php echo $baseAssets; ?>/css/style.css">
-<link rel="stylesheet" href="<?php echo $baseAssets; ?>/css/animation.css">
-<link rel="stylesheet" href="<?php echo $baseAssets; ?>/css/responsive.css">
+<!-- Tailwind CSS (compiled — see package.json "build" script) -->
+<link rel="stylesheet" href="<?php echo $base; ?>assets/css/tailwind.css">
+
+<!-- Project design-token styles -->
+<link rel="stylesheet" href="<?php echo $base; ?>assets/css/style.css">
+<link rel="stylesheet" href="<?php echo $base; ?>assets/css/animation.css">
+<link rel="stylesheet" href="<?php echo $base; ?>assets/css/responsive.css">
 </head>
 <body class="preload">

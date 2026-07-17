@@ -1,52 +1,97 @@
 <?php
 /**
- * pages/faq.php
- * Section 11 — Frequently Asked Questions (accordion).
+ * pages/contact.php — Kontak
+ * Form nama, subjek, email, dan pesan. Dikirim ke services/send-email.php
+ * yang memproses lalu mengirim email ke tim (fungsi satu-satunya di balik
+ * "aplikasi" ini — tidak ada login/database).
  */
+$base      = '../';
+$current   = 'contact';
+$pageTitle = 'Kontak';
+$pageDesc  = 'Hubungi tim riset Kembali Project melalui form kontak.';
 
-$faqs = [
-  [
-    "q" => "Mengapa memilih LDPE, bukan jenis plastik lain?",
-    "a" => "LDPE dipilih karena sifatnya yang lentur dan mudah dilebur pada suhu relatif rendah lewat proses thermal fusion, serta karena kantong plastik LDPE adalah salah satu limbah rumah tangga yang paling banyak ditemukan namun paling jarang didaur ulang secara mandiri."
-  ],
-  [
-    "q" => "Apakah totebag ini kuat membawa belanjaan berat?",
-    "a" => "Totebag dirancang untuk kebutuhan belanja harian dalam jumlah wajar. Uji ketahanan beban termasuk dalam tahap Pengujian yang sedang direncanakan pada roadmap riset kami."
-  ],
-  [
-    "q" => "Apakah bisa dicuci?",
-    "a" => "Material hasil thermal fusion bersifat tahan air sehingga bisa dilap atau dibilas dengan air biasa. Panduan perawatan lebih rinci akan dirilis setelah tahap pengujian selesai."
-  ],
-  [
-    "q" => "Kenapa tidak memakai kain biasa saja?",
-    "a" => "Menggunakan kain baru berarti tidak menyelesaikan masalah limbah plastik yang sudah ada. Dengan memanfaatkan LDPE bekas, proyek ini sekaligus mengurangi sampah dan menghasilkan produk fungsional — dua tujuan tercapai dalam satu material."
-  ],
-  [
-    "q" => "Bagaimana cara mendapatkan produk ini?",
-    "a" => "Saat ini proyek masih berada pada tahap riset dan pengembangan untuk program KIM dan PKM-KC, sehingga belum tersedia secara komersial. Informasi lanjutan akan dibagikan melalui halaman Tim Riset."
-  ],
-];
+require_once __DIR__ . '/../includes/header.php';
+require_once __DIR__ . '/../includes/navbar.php';
+
+$status = isset($_GET['status']) ? $_GET['status'] : null;
 ?>
-<section class="faq-section section-pad" id="faq">
+
+<section class="section-pad" style="padding-top:150px;">
   <div class="container">
     <div class="section-head center" data-aos="fade-up">
-      <span class="eyebrow">FAQ</span>
-      <h2 class="section-title">Pertanyaan yang Sering Diajukan</h2>
-      <p class="section-sub">Jawaban singkat untuk pertanyaan yang biasanya muncul setelah membaca proyek ini.</p>
+      <span class="eyebrow">Kontak</span>
+      <h2 class="section-title">Ada Pertanyaan atau Ingin Berkolaborasi?</h2>
+      <p class="section-sub">Isi form di bawah ini — pesan Anda akan langsung masuk ke email tim riset kami.</p>
     </div>
 
-    <div class="faq-list">
-      <?php foreach ($faqs as $i => $item): ?>
-        <div class="faq-item<?php echo $i === 0 ? ' active' : ''; ?>" data-aos="fade-up" data-aos-delay="<?php echo $i * 50; ?>">
-          <div class="faq-question">
-            <span><?php echo $item['q']; ?></span>
-            <span class="faq-plus"><i class="fa-solid fa-plus"></i></span>
+    <?php if ($status === 'success'): ?>
+      <div class="max-w-xl mx-auto mb-8 rounded-xl2 border border-olive-300 bg-cream-200 px-6 py-4 text-sm text-forest-800 flex items-start gap-3" data-aos="fade-up">
+        <i class="fa-solid fa-circle-check mt-0.5 text-olive-600"></i>
+        <span>Pesan Anda berhasil terkirim. Tim kami akan membalas melalui email secepatnya.</span>
+      </div>
+    <?php elseif ($status === 'error'): ?>
+      <div class="max-w-xl mx-auto mb-8 rounded-xl2 border border-clay-100 bg-clay-100/40 px-6 py-4 text-sm text-clay-600 flex items-start gap-3" data-aos="fade-up">
+        <i class="fa-solid fa-circle-exclamation mt-0.5"></i>
+        <span>Maaf, pesan gagal terkirim. Pastikan semua kolom terisi dengan benar lalu coba lagi.</span>
+      </div>
+    <?php endif; ?>
+
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-10 max-w-5xl mx-auto">
+      <!-- Form -->
+      <form action="../services/send-email.php" method="POST" class="lg:col-span-3 bg-white border border-sand-300 rounded-xl3 p-8 md:p-10 shadow-[0_20px_45px_rgba(31,59,44,0.08)]" data-aos="fade-up">
+        <div class="mb-5">
+          <label for="name" class="tw-label">Nama</label>
+          <input type="text" id="name" name="name" class="tw-input" placeholder="Nama lengkap Anda" required maxlength="100">
+        </div>
+
+        <div class="mb-5">
+          <label for="email" class="tw-label">Email</label>
+          <input type="email" id="email" name="email" class="tw-input" placeholder="nama@email.com" required maxlength="150">
+        </div>
+
+        <div class="mb-5">
+          <label for="subject" class="tw-label">Subjek</label>
+          <input type="text" id="subject" name="subject" class="tw-input" placeholder="Topik pesan Anda" required maxlength="150">
+        </div>
+
+        <div class="mb-6">
+          <label for="message" class="tw-label">Pesan</label>
+          <textarea id="message" name="message" rows="5" class="tw-input resize-none" placeholder="Tulis pesan Anda di sini..." required maxlength="2000"></textarea>
+        </div>
+
+        <!-- Honeypot anti-spam (tersembunyi dari pengguna asli) -->
+        <div class="hidden" aria-hidden="true">
+          <label for="website">Website</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <button type="submit" class="btn btn-primary w-full justify-center">
+          Kirim Pesan <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </form>
+
+      <!-- Info sampingan -->
+      <div class="lg:col-span-2 flex flex-col gap-5" data-aos="fade-up" data-aos-delay="100">
+        <div class="bg-forest-800 text-cream-100 rounded-xl3 p-8">
+          <h4 class="font-display text-lg mb-3">Kontak Langsung</h4>
+          <p class="text-sm text-white/70 leading-relaxed mb-5"><em>[Lorem ipsum — info kontak tambahan dari tim bisa diisi di sini.]</em></p>
+          <div class="flex items-center gap-3 text-sm mb-3">
+            <i class="fa-solid fa-envelope text-clay-500"></i>
+            <span>kembali.project@example.com</span>
           </div>
-          <div class="faq-answer" <?php echo $i === 0 ? 'style="max-height:220px;"' : ''; ?>>
-            <div class="faq-answer-inner"><?php echo $item['a']; ?></div>
+          <div class="flex items-center gap-3 text-sm">
+            <i class="fa-solid fa-location-dot text-clay-500"></i>
+            <span>[Nama Universitas — Program KIM &amp; PKM-KC]</span>
           </div>
         </div>
-      <?php endforeach; ?>
+
+        <div class="bg-cream-200 border border-sand-300 rounded-xl3 p-8">
+          <h4 class="font-display text-lg mb-3 text-forest-800">Waktu Respons</h4>
+          <p class="text-sm text-ink-600 leading-relaxed">Tim kami biasanya membalas dalam <em>[lorem ipsum estimasi waktu]</em> pada hari kerja.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+<?php require_once __DIR__ . '/../includes/footer.php'; ?>

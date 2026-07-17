@@ -1,8 +1,9 @@
 <?php
 /**
  * includes/footer.php
- * Site footer — attribution, sitemap links, QR note.
+ * Expects $base ('' or '../') from the caller.
  */
+if (!isset($base)) { $base = ''; }
 $year = date("Y");
 ?>
 <footer class="site-footer">
@@ -23,20 +24,18 @@ $year = date("Y");
       <div class="footer-col">
         <h5>Jelajahi</h5>
         <ul>
-          <li><a href="#about">Tentang Proyek</a></li>
-          <li><a href="#plastic">Kenali Plastik</a></li>
-          <li><a href="#journey">Perjalanan Plastik</a></li>
-          <li><a href="#product">Produk</a></li>
+          <li><a href="<?php echo $base; ?>index.php">Beranda</a></li>
+          <li><a href="<?php echo $base; ?>pages/education.php">Edukasi</a></li>
+          <li><a href="<?php echo $base; ?>pages/process.php">Proses</a></li>
+          <li><a href="<?php echo $base; ?>pages/solution.php">Solusi</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h5>Informasi</h5>
         <ul>
-          <li><a href="#impact">Dampak Lingkungan</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#team">Tim Riset</a></li>
-          <li><a href="pages/about.php">Dokumentasi Lengkap</a></li>
+          <li><a href="<?php echo $base; ?>pages/about.php">Tentang Kami</a></li>
+          <li><a href="<?php echo $base; ?>pages/contact.php">Kontak</a></li>
         </ul>
       </div>
 
@@ -54,8 +53,19 @@ $year = date("Y");
       <div class="footer-socials">
         <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
         <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-        <a href="mailto:kembali.project@example.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        <a href="<?php echo $base; ?>pages/contact.php" aria-label="Kontak"><i class="fa-solid fa-envelope"></i></a>
       </div>
     </div>
   </div>
 </footer>
+
+<!-- Bootstrap 5 bundle (utilities only) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- AOS Animation -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<!-- SwiperJS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- Project script -->
+<script src="<?php echo $base; ?>assets/js/script.js"></script>
+</body>
+</html>

@@ -1,22 +1,20 @@
 <?php
 /**
- * pages/product.php
- * Section 7 — Product Showcase
- * Section 8 — Why Keychain (behavioral comparison)
+ * pages/solution.php — Solusi
+ * Gambar / rancangan akhir dari proyek: produk, alasan bentuk keychain,
+ * dan dampak lingkungan yang diharapkan.
  */
+$base      = '../';
+$current   = 'solution';
+$pageTitle = 'Solusi';
+$pageDesc  = 'Rancangan akhir Foldable Totebag Keychain — fitur produk dan dampak lingkungan yang diharapkan.';
 
-$features = [
-  ["icon" => "fa-arrows-rotate", "title" => "Reusable",        "desc" => "Dipakai berulang kali, bukan sekali buang"],
-  ["icon" => "fa-droplet",       "title" => "Waterproof",      "desc" => "Tahan terhadap percikan & rembesan air"],
-  ["icon" => "fa-feather",       "title" => "Lightweight",     "desc" => "Ringan, tidak membebani gantungan kunci"],
-  ["icon" => "fa-compress",      "title" => "Foldable",        "desc" => "Dilipat sekecil dompet kunci biasa"],
-  ["icon" => "fa-hand-holding",  "title" => "Easy to Carry",   "desc" => "Mudah dibawa ke mana pun tanpa terasa"],
-  ["icon" => "fa-key",           "title" => "Keychain-Attached","desc" => "Menempel langsung, selalu ada saat dibutuhkan"],
-];
+require_once __DIR__ . '/../includes/header.php';
+require_once __DIR__ . '/../includes/navbar.php';
 ?>
 
-<!-- SECTION 7 — Product Showcase -->
-<section class="product section-pad" id="product">
+<!-- PRODUCT SHOWCASE -->
+<section class="product section-pad" id="product" style="padding-top:150px;">
   <div class="container">
     <div class="product-grid">
       <div class="product-stage" data-aos="zoom-in">
@@ -29,7 +27,6 @@ $features = [
           <circle cx="150" cy="42" r="12" fill="#BE7C4D"/>
           <rect x="144" y="52" width="12" height="20" rx="4" fill="#BE7C4D"/>
         </svg>
-
         <div class="feature-tag ft-1"><i class="fa-solid fa-droplet"></i> Waterproof</div>
         <div class="feature-tag ft-2"><i class="fa-solid fa-compress"></i> Foldable</div>
         <div class="feature-tag ft-3"><i class="fa-solid fa-key"></i> Keychain</div>
@@ -39,28 +36,41 @@ $features = [
         <div class="section-head" data-aos="fade-up">
           <span class="eyebrow">Produk</span>
           <h2 class="section-title">Kenalan dengan Foldable Totebag Keychain</h2>
-          <p class="section-sub">Dirancang untuk hilang dari perhatian Anda — dalam artian yang baik. Selalu ada, tanpa perlu diingat-ingat.</p>
+          <p class="section-sub"><em>[Lorem ipsum — nama produk final &amp; tagline dari tim bisa diisi di sini.]</em> Dirancang untuk selalu ada, tanpa perlu diingat-ingat.</p>
         </div>
 
         <div class="feature-list">
-          <?php foreach ($features as $i => $f): ?>
-            <div class="feature-item" data-aos="fade-up" data-aos-delay="<?php echo $i * 60; ?>">
-              <i class="fa-solid <?php echo $f['icon']; ?>"></i>
-              <div>
-                <h5><?php echo $f['title']; ?></h5>
-                <p><?php echo $f['desc']; ?></p>
-              </div>
-            </div>
-          <?php endforeach; ?>
+          <div class="feature-item" data-aos="fade-up" data-aos-delay="0">
+            <i class="fa-solid fa-arrows-rotate"></i>
+            <div><h5>Reusable</h5><p>Dipakai berulang kali, bukan sekali buang</p></div>
+          </div>
+          <div class="feature-item" data-aos="fade-up" data-aos-delay="60">
+            <i class="fa-solid fa-droplet"></i>
+            <div><h5>Waterproof</h5><p>Tahan terhadap percikan &amp; rembesan air</p></div>
+          </div>
+          <div class="feature-item" data-aos="fade-up" data-aos-delay="120">
+            <i class="fa-solid fa-feather"></i>
+            <div><h5>Lightweight</h5><p>Ringan, tidak membebani gantungan kunci</p></div>
+          </div>
+          <div class="feature-item" data-aos="fade-up" data-aos-delay="180">
+            <i class="fa-solid fa-compress"></i>
+            <div><h5>Foldable</h5><p>Dilipat sekecil dompet kunci biasa</p></div>
+          </div>
+          <div class="feature-item" data-aos="fade-up" data-aos-delay="240">
+            <i class="fa-solid fa-hand-holding"></i>
+            <div><h5>Easy to Carry</h5><p>Mudah dibawa ke mana pun tanpa terasa</p></div>
+          </div>
+          <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
+            <i class="fa-solid fa-key"></i>
+            <div><h5>Keychain-Attached</h5><p>Menempel langsung, selalu ada saat dibutuhkan</p></div>
+          </div>
         </div>
-
-        <a href="#journey" class="btn btn-primary">Lihat Proses Pembuatannya <i class="fa-solid fa-arrow-right"></i></a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SECTION 8 — Why Keychain -->
+<!-- WHY KEYCHAIN -->
 <section class="keychain-why section-pad" id="why-keychain">
   <div class="container">
     <div class="section-head center" data-aos="fade-up">
@@ -79,9 +89,7 @@ $features = [
           <li><i class="fa-solid fa-circle-xmark"></i> Butuh tas tambahan untuk membawanya</li>
         </ul>
       </div>
-
       <div class="compare-vs" data-aos="zoom-in">VS</div>
-
       <div class="compare-card yes" data-aos="fade-up" data-aos-delay="120">
         <h4><i class="fa-solid fa-key"></i> Foldable Keychain Tote</h4>
         <ul>
@@ -94,3 +102,52 @@ $features = [
     </div>
   </div>
 </section>
+
+<!-- ENVIRONMENTAL IMPACT -->
+<section class="impact-section section-pad" id="impact">
+  <div class="container">
+    <div class="section-head center" data-aos="fade-up">
+      <span class="eyebrow">Dampak Lingkungan</span>
+      <h2 class="section-title">Perubahan Kecil yang Berdampak Berulang</h2>
+    </div>
+    <div class="impact-grid">
+      <div class="impact-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="impact-icon"><i class="fa-solid fa-leaf"></i></div>
+        <h4>Mengurangi Sampah Plastik</h4>
+        <p>Setiap totebag mengalihkan sejumlah kantong LDPE dari tempat pembuangan akhir.</p>
+      </div>
+      <div class="impact-card" data-aos="fade-up" data-aos-delay="80">
+        <div class="impact-icon"><i class="fa-solid fa-coins"></i></div>
+        <h4>Menaikkan Nilai Produk</h4>
+        <p>Limbah bernilai rendah diubah menjadi produk fungsional bernilai guna tinggi.</p>
+      </div>
+      <div class="impact-card" data-aos="fade-up" data-aos-delay="160">
+        <div class="impact-icon"><i class="fa-solid fa-arrows-spin"></i></div>
+        <h4>Mendorong Ekonomi Sirkular</h4>
+        <p>Material bekas kembali masuk ke siklus pemakaian, bukan berakhir sebagai sampah.</p>
+      </div>
+      <div class="impact-card" data-aos="fade-up" data-aos-delay="240">
+        <div class="impact-icon"><i class="fa-solid fa-seedling"></i></div>
+        <h4>Membangun Kebiasaan Baik</h4>
+        <p>Mendorong kebiasaan membawa tas belanja sendiri secara konsisten dan alami.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" style="padding-top:0;">
+  <div class="container">
+    <div class="cta-band" data-aos="fade-up">
+      <div>
+        <h3>Tertarik dengan produk ini?</h3>
+        <p>Kenali tim di baliknya atau hubungi kami langsung.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="about.php" class="btn btn-outline" style="border-color:rgba(255,255,255,.4); color:#fff;">Tentang Kami</a>
+        <a href="contact.php" class="btn btn-clay">Hubungi Kami <i class="fa-solid fa-paper-plane"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<?php require_once __DIR__ . '/../includes/footer.php'; ?>

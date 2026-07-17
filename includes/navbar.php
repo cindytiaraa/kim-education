@@ -1,21 +1,22 @@
 <?php
 /**
  * includes/navbar.php
- * Floating frosted-glass navigation + mobile overlay menu.
- * Active section state handled client-side in script.js
+ * Expects $base ('' or '../') and $current (page key) from the caller
+ * to highlight the active nav link. Real multi-page links — not anchors.
  */
+if (!isset($base)) { $base = ''; }
+if (!isset($current)) { $current = 'home'; }
+
 $navItems = [
-  "about"    => "Tentang",
-  "problem"  => "Masalah",
-  "plastic"  => "Kenali Plastik",
-  "journey"  => "Perjalanan",
-  "product"  => "Produk",
-  "impact"   => "Dampak",
-  "faq"      => "FAQ",
+  "home"      => ["label" => "Beranda",   "href" => $base . "index.php"],
+  "education" => ["label" => "Edukasi",   "href" => $base . "pages/education.php"],
+  "process"   => ["label" => "Proses",    "href" => $base . "pages/process.php"],
+  "solution"  => ["label" => "Solusi",    "href" => $base . "pages/solution.php"],
+  "about"     => ["label" => "Tentang Kami", "href" => $base . "pages/about.php"],
 ];
 ?>
 <nav class="kim-nav" id="kimNav">
-  <a href="#hero" class="brand">
+  <a href="<?php echo $base; ?>index.php" class="brand">
     <svg class="ring-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="12" cy="12" r="8.5" stroke="#2C4A3B" stroke-width="2.4"/>
       <path d="M18.5 17L26 24.5" stroke="#BE7C4D" stroke-width="2.4" stroke-linecap="round"/>
@@ -25,14 +26,14 @@ $navItems = [
   </a>
 
   <ul class="nav-links" id="navLinks">
-    <?php foreach ($navItems as $anchor => $label): ?>
-      <li><a href="#<?php echo $anchor; ?>" data-nav="<?php echo $anchor; ?>"><?php echo $label; ?></a></li>
+    <?php foreach ($navItems as $key => $item): ?>
+      <li><a href="<?php echo $item['href']; ?>" class="<?php echo $current === $key ? 'active' : ''; ?>"><?php echo $item['label']; ?></a></li>
     <?php endforeach; ?>
   </ul>
 
   <div class="nav-cta">
-    <a href="#team" class="btn btn-outline">Tim Riset</a>
-    <a href="#journey" class="btn btn-primary">Lihat Prosesnya</a>
+    <a href="<?php echo $base; ?>pages/contact.php" class="btn btn-outline">Hubungi Kami</a>
+    <a href="<?php echo $base; ?>pages/solution.php" class="btn btn-primary">Lihat Produk</a>
     <button class="nav-toggle" id="navToggle" aria-label="Buka menu">
       <i class="fa-solid fa-bars"></i>
     </button>
@@ -41,8 +42,9 @@ $navItems = [
 
 <div class="mobile-menu" id="mobileMenu">
   <button class="close-menu" id="closeMenu" aria-label="Tutup menu"><i class="fa-solid fa-xmark"></i></button>
-  <?php foreach ($navItems as $anchor => $label): ?>
-    <a href="#<?php echo $anchor; ?>" class="mm-link"><?php echo $label; ?></a>
+  <?php foreach ($navItems as $key => $item): ?>
+    <a href="<?php echo $item['href']; ?>" class="mm-link"><?php echo $item['label']; ?></a>
   <?php endforeach; ?>
-  <a href="#journey" class="btn btn-clay mm-cta">Lihat Prosesnya <i class="fa-solid fa-arrow-right"></i></a>
+  <a href="<?php echo $base; ?>pages/contact.php" class="mm-link">Kontak</a>
+  <a href="<?php echo $base; ?>pages/solution.php" class="btn btn-clay mm-cta">Lihat Produk <i class="fa-solid fa-arrow-right"></i></a>
 </div>
