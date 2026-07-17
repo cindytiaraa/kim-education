@@ -4,13 +4,13 @@
  * Halaman utama, penuh interaksi (hero + ringkasan tiap section),
  * mengarahkan pengunjung ke halaman-halaman detail lainnya.
  */
-$base      = '/';
+$base      = '';
 $current   = 'home';
 $pageTitle = 'Beranda';
 $pageDesc  = 'Foldable Totebag Keychain — mengubah limbah plastik LDPE menjadi kebiasaan baru membawa tas belanja sendiri.';
 
-require_once __DIR__ . '../includes/header.php';
-require_once __DIR__ . '../includes/navbar.php';
+require_once __DIR__ . '/../includes/header.php';
+require_once __DIR__ . '/../includes/navbar.php';
 ?>
 
 <!-- HERO -->
@@ -135,4 +135,4 @@ require_once __DIR__ . '../includes/navbar.php';
   </div>
 </section>
 
-<?php require_once __DIR__ . '../includes/footer.php'; ?>
+<?php require_once __DIR__ . '/../includes/footer.php'; ?>
