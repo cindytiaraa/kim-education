@@ -21,7 +21,7 @@ $navItems = [
       <path d="M18.5 17L26 24.5" stroke="#BE7C4D" stroke-width="2.4" stroke-linecap="round"/>
       <rect x="23" y="22" width="6.5" height="8" rx="2" transform="rotate(8 23 22)" fill="#BE7C4D"/>
     </svg>
-    <span>Ecoloop</span>
+    <span>Rekey</span>
   </a>
 
   <ul class="nav-links" id="navLinks">
