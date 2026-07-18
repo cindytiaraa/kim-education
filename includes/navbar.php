@@ -31,6 +31,17 @@ $navItems = [
   </ul>
 
   <div class="nav-cta">
+
+      <!-- Desktop -->
+      <a href="<?php echo $base; ?>pages/about.php" class="btn btn-outline desktop-btn">
+          Tentang Kami
+      </a>
+
+      <a href="<?php echo $base; ?>pages/contact.php" class="btn btn-primary desktop-btn">
+          Hubungi Kami
+      </a>
+
+      <!-- Mobile -->
       <button class="nav-toggle" id="navToggle" aria-label="Buka menu">
           <i class="fa-solid fa-bars"></i>
       </button>
