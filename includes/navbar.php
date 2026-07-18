@@ -33,18 +33,19 @@ $navItems = [
   <div class="nav-cta">
 
       <!-- Desktop -->
-      <a href="<?php echo $base; ?>pages/about.php" class="btn btn-outline desktop-btn">
+      <a href="<?php echo $base; ?>pages/about.php" class="btn btn-outline hidden lg:inline-flex">
           Tentang Kami
       </a>
 
-      <a href="<?php echo $base; ?>pages/contact.php" class="btn btn-primary desktop-btn">
+      <a href="<?php echo $base; ?>pages/contact.php" class="btn btn-primary hidden lg:inline-flex">
           Hubungi Kami
       </a>
 
       <!-- Mobile -->
-      <button class="nav-toggle" id="navToggle" aria-label="Buka menu">
+      <button class="nav-toggle flex lg:hidden" id="navToggle" aria-label="Buka menu">
           <i class="fa-solid fa-bars"></i>
       </button>
+      
   </div>
 </nav>
 
